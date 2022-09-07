@@ -10,6 +10,6 @@ var (
 )
 
 func init() {
-	GitInfo = fmt.Sprintf("")
-	AppVersion = fmt.Sprintf("")
+	GitInfo = fmt.Sprintf("%s %s", GitBranch, GitVersion)
+	AppVersion = fmt.Sprintf("%s built by %s at %s with %s", AppName, AppBuilder, AppBuildTime, GitInfo)
 }

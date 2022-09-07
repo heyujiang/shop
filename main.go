@@ -1,7 +1,7 @@
 package main
 
-import userV1 "github.com/heyujiang/hapis/protogen-go/user/v1"
+import "github.com/heyujiang/shop/cmd"
 
 func main() {
-	_ = userV1.NewUserClient(nil)
+	cmd.Execute()
 }
