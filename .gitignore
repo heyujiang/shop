@@ -1,0 +1,4 @@
+.idea
+shop
+/pkg/setting/version.go
+shop.log
