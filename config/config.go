@@ -15,8 +15,15 @@ var (
 )
 
 type Config struct {
+	Web      Web      `toml:"Web"`
 	DataBase DataBase `toml:"DataBase"`
 	Redis    Redis    `toml:"Redis"`
+	User     User     `toml:"User"`
+	Product  Product  `toml:"Product"`
+}
+
+type Web struct {
+	Port int `toml:"port"`
 }
 
 type DataBase struct {
@@ -39,6 +46,16 @@ type Redis struct {
 	PassWord string `toml:"pass_word"`
 	Db       int    `toml:"db"`
 }
+
+type (
+	User struct {
+		Url string `toml:"url"`
+	}
+
+	Product struct {
+		Url string `toml:"url"`
+	}
+)
 
 func init() {
 	confValue = &atomic.Value{}

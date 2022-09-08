@@ -1,3 +1,5 @@
+[Web]
+port=8081
 # 数据库设置
 [DataBase]
 debug=false
@@ -26,3 +28,10 @@ url="127.0.0.1:6731"
 pass_word=""
 # db
 db=1
+
+
+[User]
+url="127.0.0.1:40001"
+
+[Product]
+url="127.0.0.01:40002"
