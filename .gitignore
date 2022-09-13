@@ -16,3 +16,6 @@ shop.log
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+
+/pkg/e/code_string.go

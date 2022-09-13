@@ -2,8 +2,10 @@ package user_client
 
 import (
 	"context"
+	"fmt"
 	common "github.com/heyujiang/hapis/protogen-go/common/v1"
 	user "github.com/heyujiang/hapis/protogen-go/user/v1"
+	"github.com/heyujiang/shop/app/web/service"
 	"github.com/heyujiang/shop/config"
 	"github.com/heyujiang/shop/model"
 	"github.com/pkg/errors"
@@ -14,9 +16,12 @@ import (
 var initClientUserOnce sync.Once
 var userClient user.UserClient
 
-func getUserClient() user.UserClient {
+func GetUserClient() user.UserClient {
 	initClientUserOnce.Do(func() {
-		conn, _ := grpc.Dial(config.GetConfig().User.Url, grpc.WithInsecure())
+		s := service.GetService(config.GetConfig().RegisterCenter, "1")
+
+		//conn, _ := grpc.Dial(config.GetConfig().User.Url, grpc.WithInsecure())
+		conn, _ := grpc.Dial(fmt.Sprintf("%s:%d", s.Address, s.Port), grpc.WithInsecure())
 		userClient = user.NewUserClient(conn)
 	})
 	return userClient

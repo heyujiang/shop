@@ -15,11 +15,13 @@ var (
 )
 
 type Config struct {
-	Web      Web      `toml:"Web"`
-	DataBase DataBase `toml:"DataBase"`
-	Redis    Redis    `toml:"Redis"`
-	User     User     `toml:"User"`
-	Product  Product  `toml:"Product"`
+	Web            Web            `toml:"Web"`
+	DataBase       DataBase       `toml:"DataBase"`
+	Redis          Redis          `toml:"Redis"`
+	User           User           `toml:"User"`
+	Product        Product        `toml:"Product"`
+	RegisterCenter RegisterCenter `toml:"RegisterCenter"`
+	Consul         Consul         `toml:"Consul"`
 }
 
 type Web struct {
@@ -54,6 +56,17 @@ type (
 
 	Product struct {
 		Url string `toml:"url"`
+	}
+)
+
+type (
+	RegisterCenter struct {
+		Type   string `toml:"type"`
+		Consul Consul `toml:"Consul"`
+	}
+
+	Consul struct {
+		Address string `toml:"address"`
 	}
 )
 

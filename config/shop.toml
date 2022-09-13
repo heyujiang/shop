@@ -35,3 +35,8 @@ url="127.0.0.1:40001"
 
 [Product]
 url="127.0.0.01:40002"
+
+[RegisterCenter]
+type="consul"
+[RegisterCenter.Consul]
+address="127.0.0.1:8500"
